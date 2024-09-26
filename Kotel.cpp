@@ -421,7 +421,7 @@ bool __Kotel::setTimeoutTempFixMinutes(uint16_t newTimeoutTempFix) {
 }
 
 bool __Kotel::setTimeoutTempFailMinutes(uint16_t newTimeoutTempFail) {
-  if (newTimeoutTempFail < 15 || newTimeoutTempFail > 120) return false;
+  if (newTimeoutTempFail < 15 || newTimeoutTempFail > 360) return false;
   uint32_t _newTimeoutTempFail = MINUTE_TO_MS(newTimeoutTempFail);
   uint8_t res = set_uint32(&timeoutTempFail, _newTimeoutTempFail, timeoutTempFix, _newTimeoutTempFail, 16);
   if (res==0) {
@@ -436,7 +436,7 @@ bool __Kotel::setTimeoutTempFailMinutes(uint16_t newTimeoutTempFail) {
 }
 
 bool __Kotel::setTimeoutRastopkaMinutes(uint16_t newTimeoutRastopka) {
-  if (newTimeoutRastopka < 10 || newTimeoutRastopka > 180) return false;
+  if (newTimeoutRastopka < 10 || newTimeoutRastopka > 360) return false;
   uint32_t _newTimeoutRastopka = MINUTE_TO_MS(newTimeoutRastopka);
   uint8_t res = set_uint32(&timeoutRastopka, _newTimeoutRastopka, _newTimeoutRastopka, _newTimeoutRastopka, 24);
   if (res==0) {
@@ -547,7 +547,7 @@ void __Kotel::ProduvkaOn() {
   if (lastProduvkaOn == 0) {
     lastProduvkaOn = millis();
     statusDoProduvki = LCD.lastStatus;
-    LCD.printStatus("Продувка 5 секунд");
+    LCD.printStatus("Продувка 20 секунд");
     ReleOn();
   }
 }
@@ -556,7 +556,7 @@ bool __Kotel::Produvka() {
   if (lastProduvkaOn == 0) {
     return false;
   }
-  if (isTimeEllapsed(lastProduvkaOn, 5000)) {
+  if (isTimeEllapsed(lastProduvkaOn, 20000)) {
     ReleOff();
     LCD.printStatus(statusDoProduvki);
     lastProduvkaOn = 0;
@@ -649,7 +649,7 @@ void __Kotel::ZolaSbrosOn() {
 bool __Kotel::ZolaSbros() {
   if (lastZolaSbros != 0) {
     if (zolaSbrosStatus == 1) {
-      if (isTimeEllapsed(lastZolaSbros, 1000)) {
+      if (isTimeEllapsed(lastZolaSbros, 3000)) {
         zolaSbrosStatus = 0;
         digitalWrite(pinZolaSbros, LOW);
         #ifdef USE_SERIAL_LOG

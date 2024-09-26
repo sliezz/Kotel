@@ -597,7 +597,7 @@ void __MENU::load_timeoutRastopka() {
   min[1] = 0;
   min[2] = 0;
   min[3] = 0;
-  max[0] = 180;
+  max[0] = 360;
   max[1] = 9;
   max[2] = 9;
   max[3] = 9;
@@ -635,7 +635,7 @@ void __MENU::load_timeoutTempFix() {
   min[1] = 0;
   min[2] = 0;
   min[3] = 0;
-  max[0] = 180;
+  max[0] = 360;
   max[1] = 9;
   max[2] = 9;
   max[3] = 9;
@@ -673,7 +673,7 @@ void __MENU::load_timeoutTempFail() {
   min[1] = 0;
   min[2] = 0;
   min[3] = 0;
-  max[0] = 180;
+  max[0] = 360;
   max[1] = 9;
   max[2] = 9;
   max[3] = 9;
