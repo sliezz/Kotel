@@ -679,10 +679,10 @@ void __Kotel::RastopkaKotla() {
       if (isTimeEllapsed(lastTimeOn, timeoutTempFix)) {
         ZolaSbrosOn();
       }
-      if (isTimeEllapsed(lastTimeOn, timeoutRastopka)) {
+      /*if (isTimeEllapsed(lastTimeOn, timeoutRastopka)) {
         ReleOff();
         setRabotaMode(mode_OstanovkaKotla);
-      }
+      }*/
     } else {
       ReleOn();
       ZolaSbrosReset();
@@ -710,10 +710,10 @@ void __Kotel::PoTemperature() {
       if (isTimeEllapsed(lastTimeOn, timeoutTempFix)) {
         ZolaSbrosOn();
       }
-      if (isTimeEllapsed(lastTimeOn, timeoutTempFail)) {
+      /*if (isTimeEllapsed(lastTimeOn, timeoutTempFail)) {
         ReleOff();
         setRabotaMode(mode_OstanovkaKotla);
-      }
+      }*/
     } else {
       ReleOn();
       ZolaSbrosReset();
@@ -747,10 +747,10 @@ void __Kotel::Tlenie() {
       if (isTimeEllapsed(lastTimeOn, timeoutTempFix)) {
         ZolaSbrosOn();
       }
-      if (isTimeEllapsed(lastTimeOn, timeoutTempFail)) {
+      /*if (isTimeEllapsed(lastTimeOn, timeoutTempFail)) {
         ReleOff();
         setRabotaMode(mode_OstanovkaKotla);
-      }
+      }*/
     } else {
       ReleOn();
       ZolaSbrosReset();
